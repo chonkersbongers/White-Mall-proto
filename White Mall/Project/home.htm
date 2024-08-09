@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel = "stylesheet" href = "main.css">
+        <title>White Mall</title>    
+        
+        <style>
+            .hardwarePanel{
+                width: 30%;
+                background: none;
+                border: none;
+                margin: 1vh;
+                background-color: white;
+                position: relative;
+                bottom: 0;
+                z-index: 1;                
+
+                box-shadow: none;
+                transition: box-shadow .3s, bottom .3s;
+            }
+            .hardwareDesc{
+                bottom: -65vh;
+                position:absolute;
+                z-index: 0;
+                margin: 2vh;
+                width: 30%;
+                
+            }
+            .hardwareDesc p{
+                color: white;
+            }
+            .hardwarePanel:hover{
+                box-shadow: 0 0 20px rgba(255,255,255, .3);
+            }
+            .hardwarePanel:active{
+                bottom: 20vh;
+            }
+            .hardwarePanel img{
+                width: 100%;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "sideBar">
+            <button onclick="closeDiv('sideBar')">X</button>
+            <nav>
+                <a href = "pages/GraphsAndData.htm"><button> Graphs & data </button></a>
+                <a href = "pages/Education.htm"><button> Education </button></a>
+                <a href = "pages/Rewards.htm"><button> Rewards </button></a>
+                <a href = "pages/Operator.htm"><button> Operator </button></a>
+            </nav>
+        </div>
+        <div id = "topnav" class = "overlay">
+            <a href = "home.htm"><button style="float: left;"><p style="color: #003459;">WHITE</p></button></a>
+            <button style="float: right;" onclick="openDiv('sideBar')"><img src="imgs/icons/hamburger.png" alt="NAV" style="width:20px"></button>
+            <!-- <button style="float: right;"><img src="imgs/icons/data.jpg" alt="NAV" style="width:20px"></button> -->
+        </div>
+
+        <div id = "topbar">
+           <h1 id = "title" class="typeWriter">WHITE MALL</h1>
+           <div style="width: 100%; height: 30px; background-color: white; bottom:0; position: absolute;"></div>
+        </div>
+        
+        <div class="empty" style="height: 10vh;"></div>
+
+        <h2>HARDWARE</h2>
+        <button class = "hardwarePanel">
+            <img src = "imgs/aircon.jpg" alt = "ac">
+            <h3>AIRCON</h3>
+        </button>
+        <button class = "hardwarePanel">
+            <img src = "imgs/escalator.png" alt = "escalator">
+            <h3>ESCALATOR</h3>
+        </button>
+        <button class = "hardwarePanel">
+            <img src = "imgs/lights.png" alt="light">
+            <h3>LIGHTS</h3>
+        </button>
+
+        <div class = "hardwareDesc">
+            <p>The smart air conditioner utilizes advanced sensors and algorithms to monitor temperature and occupancy patterns. It dynamically adjusts cooling output based on real-time data, optimizing energy usage. By intelligently adapting to the environment, the air conditioner minimizes waste, reduces energy bills, and maintains optimal comfort levels throughout the day.</p>
+        </div>
+        <div class = "hardwareDesc" style="left: 32%;">
+            <p>The smart escalator employs sensors to track foot traffic and usage patterns. It dynamically controls its operation, powering on and off intelligently based on real-time data. By adapting to actual needs rather than running continuously, the escalator minimizes energy consumption without compromising convenience for users.</p>
+        </div>
+        <div class = "hardwareDesc" style="left: 63%;">
+            <p>The smart lighting system utilizes sensors to monitor ambient light levels and occupancy. It automatically adjusts the intensity of the lights or turns them on/off based on the available natural light and detected human presence. This adaptive functionality minimizes unnecessary lighting usage, reducing energy consumption while maintaining optimal illumination.</p>
+        </div>
+
+        <script src = "main.js"></script>
+        <script>
+            typeWriter(); 
+        </script>
+    </body>
+</html>
