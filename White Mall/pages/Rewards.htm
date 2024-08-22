@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel = "stylesheet" href = "../main.css">
+        <title>Rewards</title>        
+
+        <style>
+            #title{                 
+                position: absolute;                                
+                font-size: 180px;
+                transition: all 1s;
+            }            
+            #title.pos1{
+                right: 100px;
+                top: 15%;
+            }
+            .action{
+                position: absolute;
+                width: 30%;
+                height: 100px;                
+
+                top: 55%;
+                right: 200px;   
+                transition: all 1s;             
+            }
+            .action button{
+                width: 100%;
+                height: 100%;
+            }
+            .action button:hover{
+                transform: scale(1.1)
+            }
+
+            #progress{
+                position: absolute;
+                bottom: 0;                                
+                width: 15px;
+                height: 100%;
+                background-color: rgba(0,0,0,.4);
+
+                left: 200px;
+                border-radius: 30px;
+            }
+            #completed{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 40%;
+
+                background-color: rgb(255,255,255);
+                border-radius: 30px;
+                box-shadow: 0 0 10px rgba(255,255,255,.8);
+            }
+
+            #rewardsData{
+                position: absolute;               
+                top: 30vh;
+                right: 10vh;
+                width: 55%;
+                text-align: center;
+            }
+
+            .gift{
+                position: absolute;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                border: none;                
+                left: 182px;            
+                background-color: #031f36;
+            }            
+
+            .gift.claimed{
+                background-color:  rgb(255,255,255);
+                box-shadow: 0 0 10px rgb(255,255,255,.8);
+            }
+
+            /* .gift{
+                position: absolute;
+                width: 250px;
+                height: 50px;
+                left: 30vh;
+                border-radius: 30px;
+                box-shadow: 0 0 10px rgba(255,255,255,.8);
+                background-color: rgba(255,255,255,.8);
+                background-size: cover;
+            } */
+            /* .gift h2{
+                font-size: medium;
+            }
+            .claimed{
+                background-color: rgba(255,255,255,.1);
+            } */
+            @keyframes anim{
+                0%{
+                    bottom:40%;
+                }
+                50%{
+                    bottom:45%;;
+                }
+                100%{
+                    bottom:40%;
+                }
+            }
+            #img {                
+                width: 100%;
+                position: absolute;                
+                animation-name: anim;
+                animation-duration: 5s;
+                animation-iteration-count: infinite;
+            }
+        </style>
+    </head>
+    <body>        
+        <div id = "sideBar">
+            <button onclick="closeDiv('sideBar')">X</button>
+            <nav>
+                <a href = "GraphsAndData.htm"><button> Graphs & data </button></a>
+                <a href = "Education.htm"><button> Education </button></a>
+                <a href = "Rewards.htm"><button> Rewards </button></a>
+                <a href = "Operator.htm"><button> Operator </button></a>
+            </nav>
+        </div>
+        <div id = "topnav" class = "overlay sticky">
+            <a href = "../home.htm"><button style="float: left;"><p style="color: #003459;">WHITE</p></button></a>
+            <button style="float: right;" onclick="openDiv('sideBar')"><img src="../imgs/icons/hamburger.png" alt="NAV" style="width:20px"></button>
+            <!-- <button style="float: right;"><img src="imgs/icons/data.jpg" alt="NAV" style="width:20px"></button> -->
+        </div>  
+        
+        
+        <div id = "progress">
+            <img src = "../imgs/icons/10%off.png" id = "img">
+            <div id = "completed"></div>
+        </div>
+
+        <button class = "gift claimed" style="bottom: 100px"></button>
+        <button class = "gift claimed" style="bottom: 250px"></button>
+        <button class = "gift next" style="bottom: 400px"></button>
+        <button class = "gift" style="bottom: 550px"></button>
+
+<!--         
+        <div class = "gift showOnScrollLeft claimed" style="bottom: 5%;"><h2>Ice Cream</h2></div>     
+        <div class = "gift showOnScrollLeft claimed" style="bottom: 15%;"><h2>Handbag</h2></div>     
+        <div class = "gift showOnScrollLeft claimed" style="bottom: 25%;"><h2>10% Off Gift Card</h2></div>     
+        <div class = "gift showOnScrollLeft" style="bottom: 35%;"><h2>???</h2></div>     
+        <div class = "gift showOnScrollLeft" style="bottom: 45%;"><h2>???</h2></div>     
+        <div class = "gift showOnScrollLeft" style="bottom: 55%;"><h2>???</h2></div>     
+        <div class = "gift showOnScrollLeft" style="bottom: 65%;"><h2>???</h2></div>     
+        <div class = "gift showOnScrollLeft" style="bottom: 75%;"><h2>???</h2></div>     
+        <div class = "gift showOnScrollLeft" style="bottom: 85%;"><h2>???</h2></div>      -->
+
+        <h1 id = "title" class="pos1">REWARDS</h1>
+        <div class = "action"><button class = "action"> Start earning </button></div>
+        <!-- <div id = "rewardsData">
+            <h2>You have earned: </h2>
+            <h2 style="font-size: xx-large;">158 points!</h2>
+            <p>Only 42 points until the next reward!</p>
+            <div class = "empty" style="height: 10vh;"></div>
+            <p>This reward system incentivizes customers to actively participate in energy-saving initiatives. By walking on specialized floor tiles covered all around the mall that generate electricity or using connected gym equipment like stationary bikes and treadmills, users can earn discounts, rewards, and other benefits. This approach not only raises awareness of sustainable practices but also provides tangible incentives for customers to modify their behavior and contribute to reducing overall energy demands.</p>
+            <p>By walking on this treadmill / By biking , you have save us energy and thus gaining points</p>
+            <div class = "empty" style="height: 20vh;"></div>
+            <p style="font-size: small;"> Scan QR codes to earn points. </p>
+            <p style="font-size: small;"> Don't have an account? Register on our mobile app. </p>
+        </div> -->
+
+        <script src = "../main.js"></script>
+    </body>
+</html>
