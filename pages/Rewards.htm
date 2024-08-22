@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel = "stylesheet" href = "../main.css">
+        <title>Rewards</title>        
+
+        <style>
+            #title{                 
+                position: absolute;                                                
+                transition: all 1s;
+            }            
+            .pos1 #title{
+                font-size: 180px;
+                right: 100px;
+                top: 10%;
+            }
+            .pos2 #title{
+                font-size: 80px;
+                right: 350px;
+                top: 1%;
+            }
+            .action{
+                position: absolute;
+                width: 30%;
+                height: 100px;    
+                border-radius: 50vh;            
+
+                top: 49%;
+                right: 200px;   
+                transition: all 1s;             
+            }
+            .action button{
+                width: 100%;
+                height: 100%;
+            }
+            .action button:hover{
+                transform: scale(1.1)
+            }
+            .pos2 .action{
+                top: -10vh;
+            }
+
+            #rewardsDesc{
+                position: absolute;                               
+                bottom: 0vh;
+                right: 100px;
+                width: 70%;
+                text-align: center;
+                transition: all 1s;                                           
+            }
+            .pos2 #rewardsDesc{
+                bottom: 100vh;
+            }
+
+            #progress{
+                position: absolute;
+                bottom: 0;                                
+                width: 15px;
+                height: 100%;
+                background-color: rgba(0,0,0,.4);
+
+                left: 200px;
+                border-radius: 30px;
+            }
+            #completed{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 40%;
+
+                background-color: rgb(255,255,255);
+                border-radius: 30px;
+                box-shadow: 0 0 10px rgba(255,255,255,.8);
+            }
+            
+            #rewardsData{
+                position: absolute;               
+                top: 110%;
+                right: 100px;
+                width: 70%;
+                text-align: center;
+                transition: all 1s;
+            }
+            .pos2 #rewardsData{                             
+                top: 25%;                
+            }
+
+            #rewardsPanel{
+                border-radius: 20px;
+                position: absolute;                
+                width: 300px;
+                height: 350px;
+                background-color: white;
+                left: 0;
+                box-shadow: none;
+                transition: all .5s;                
+            }
+            #rewardsPanel h1, #rewardsPanel p{
+                margin: 50px 10px 0 10px;
+                color: black;
+            }
+            #rewardsPanel progress {
+                position: absolute;
+                bottom: 10%;
+                width: 90%; 
+                height: 20px; 
+                border-radius: 100px;
+                background-color: rgba(0, 0, 0, .4);                
+                left: 5%; 
+            }
+            .pos2 #rewardsPanel{
+                bottom: -380px;
+            }
+            #rewardsPanel:hover{
+                box-shadow: 0 0 30px rgba(255,255,255,.8);
+                transform: scale(1.1,1.1);
+            }
+            
+            .gift{
+                position: absolute;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                border: none;                
+                left: 182px;            
+                background-color: #031f36;
+                transition: all .5s;
+            }             
+            .gift p{                
+                color: rgba(0,0,0,0);
+                position: absolute;
+                left: 0;
+                width: 0;
+                top: 5px;
+                text-align: left;
+                transition: left .3s, color .3s;
+            }           
+            .gift.claimed{
+                background-color:  rgb(255,255,255);
+                box-shadow: 0 0 10px rgb(255,255,255,.8);
+            }            
+            .gift:hover{
+                transform: scale(1.2,1.2);
+            }
+            .gift:hover p{                
+                left: 120%;
+                width: 100px;
+                color: white;
+            }
+
+        </style>
+    </head>
+    <body class = "pos1 noScroll">        
+        <div id = "sideBar">
+            <button onclick="closeDiv('sideBar')">X</button>
+            <nav>
+                <a href = "GraphsAndData.htm"><button> Graphs & data </button></a>
+                <a href = "Education.htm"><button> Education </button></a>
+                <a href = "Rewards.htm"><button> Rewards </button></a>
+                <a href = "Operator.htm"><button> Operator </button></a>
+            </nav>
+        </div>
+        <div id = "topnav" class = "overlay sticky">
+            <a href = "../index.htm"><button style="float: left;"><p style="color: #003459;">WHITE</p></button></a>
+            <button style="float: right;" onclick="openDiv('sideBar')"><img src="../imgs/icons/hamburger.png" alt="NAV" style="width:20px"></button>
+            <!-- <button style="float: right;"><img src="imgs/icons/data.jpg" alt="NAV" style="width:20px"></button> -->
+        </div>  
+        
+        
+        <div id = "progress">
+            <!-- <img src = "../imgs/icons/10%off.png" id = "img"> -->
+            <div id = "completed"></div>
+        </div>
+
+        <button class = "gift claimed" style="bottom: 100px"><p>10% off Starbucks giftcard</p></button>
+        <button class = "gift claimed" style="bottom: 250px"><p>Toys R Us $500 voucher</p></button>
+        <button class = "gift next" style="bottom: 400px"><p>Handbag</p></button>
+        <button class = "gift" style="bottom: 550px"><p>iPhone X</p></button>
+
+        <h1 id = "title" class="pos1">REWARDS</h1>
+        <div class = "action"><button class = "action" onclick="setPos('pos2')"> Start earning </button></div>
+        <div id = "rewardsDesc">
+            <div class = "empty" style="height: 1vh;"></div>
+            <p>This reward system incentivizes customers to actively participate in energy-saving initiatives. By walking on specialized floor tiles covered all around the mall that generate electricity or using connected gym equipment like stationary bikes and treadmills, users can earn discounts, rewards, and other benefits. This approach not only raises awareness of sustainable practices but also provides tangible incentives for customers to modify their behavior and contribute to reducing overall energy demands.</p>
+            <p>By walking on this treadmill / By biking , you have save us energy and thus gaining points</p>
+            <div class = "empty" style="height: 1vh;"></div>
+            <p style="font-size: small;"> Scan QR codes to earn points. </p>
+            <p style="font-size: small;"> Don't have an account? Register on our mobile app. </p>
+        </div>
+
+        <div id = "rewardsData">
+            <h2>You have earned: </h2>
+            <h2 style="font-size: xx-large;">158 points!</h2>
+            <p>Only 42 points until the next reward!</p>
+
+            <div id = "rewardsPanel">
+                <h1>Jogging</h1>
+                <p> description here </p>
+                <progress value="32" max = "100"></progress>
+            </div>
+            <div id = "rewardsPanel" style="left: 360px;">
+                <h1>Activity</h1>
+                <p> description here </p>
+                <progress value="97" max = "100"></progress>
+            </div>
+            <div id = "rewardsPanel" style="left: 720px;">
+                <h1>Activity</h1>
+                <p> description here </p>
+                <progress value="51" max = "100"></progress>
+            </div>
+        </div>        
+
+        <script src = "../main.js"></script>
+        <script>
+            function setPos(name){
+                document.body.className = name;
+            }       
+        </script>
+    </body>
+</html>
