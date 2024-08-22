@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel = "stylesheet" href = "../main.css">
+        <title>Operator</title>
+        
+        <style>
+            .chartPanel{
+                padding: 10px;
+                position: absolute;
+                bottom: 5vh;
+                left: 5vh;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                background-color: white;
+                width: 40%;
+                border-radius: 10px;
+                height: 80%;
+            } 
+            .chartPanel h2{
+                color: #003459;
+                position: absolute;
+            }
+            .chartPanel img{
+                position: absolute;
+                top: 10px;
+                height: 40%;
+            }
+            .slider-container{
+                position: absolute;                
+                right: 50px;
+            }
+            .label {
+                color: white;
+            }
+        </style>
+    </head>
+    <body>        
+        <div id = "sideBar">
+            <button onclick="closeDiv('sideBar')">X</button>
+            <nav>
+                <a href = "GraphsAndData.htm"><button> Graphs & data </button></a>
+                <a href = "Education.htm"><button> Education </button></a>
+                <a href = "Rewards.htm"><button> Rewards </button></a>
+                <a href = "Operator.htm"><button> Operator </button></a>
+            </nav>
+        </div>
+        <div id = "topnav" class = "overlay sticky">
+            <a href = "../home.htm"><button style="float: left;"><p style="color: #003459;">WHITE</p></button></a>
+            <button style="float: right;" onclick="openDiv('sideBar')"><img src="../imgs/icons/hamburger.png" alt="NAV" style="width:20px"></button>
+            <!-- <button style="float: right;"><img src="imgs/icons/data.jpg" alt="NAV" style="width:20px"></button> -->
+        </div>     
+
+        <div class = "chartPanel showOnScrollLeft">
+            <h2>Energy usage throughout the day</h1> 
+            <img src = "../imgs/graphs/energy-usage.jpg" style="top: 10%;">           
+            <h2 style="top: 50%;">Customers in the mall throughout the day</h1> 
+            <img src = "../imgs/graphs/people.png" style="top: 60%;">           
+        </div>
+
+        <div style=" right:0; position: absolute; top: 20vh; width: 100%;" class = "showOnScrollRight">
+            <div class="slider-container">
+                <label for="slider" class="label">Air Conditioning Intensity:</label>
+                <input type="range" min="0" max="100" value="50" class="slider" id="ac">
+                <span id="acValue" class = "label">50%</span>
+            </div>
+            <div class="slider-container" style="top: 5vh;">
+                <label for="slider" class="label">Light Intensity:</label>
+                <input type="range" min="0" max="100" value="50" class="slider" id="light">
+                <span id="lightValue" class = "label">50%</span>
+            </div>
+            <div class="slider-container" style="top: 10vh;">
+                <label for="slider" class="label">Window Opacity:</label>
+                <input type="range" min="0" max="100" value="50" class="slider" id="window">
+                <span id="windowValue" class = "label">50%</span>
+            </div>
+
+            <div class = "showOnScrollRight" style="top: 30vh; width: 40%;">
+                <h1> AI ANALYSIS </h1>
+                <p id = "aiAnalysis" class="typeWriter"> The top chart on the left shows increasingly large amounts of energy being used later during the day, mainly due to heating, lighting and screens. Consider turning off advertisements, etc. and limiting the use of heating. The bottom chart on the left shows the 1st and 3rd floors being used excessively towards the end of the day. Consider conserving energy for that period, and deactivating equipment for the 2nd floor during this time. </p>                
+                <h2> FEEDBACK </h2>
+                <p id = "aiAnalysis2" class="typeWriter"> Considering the data provided, you may want to reduce the spending of energy later in the day, mainly on the 1st and 3rd floor. AI suggests turning off the lights and air conditioning in the 2nd floor. </p>                
+            </div>
+        </div>
+
+        <script src = "../main.js"></script>
+
+        <script>
+            const acValue = document.getElementById("acValue");
+            const ac = document.getElementById("ac");
+            const lightValue = document.getElementById("lightValue");
+            const light = document.getElementById("light");
+            const windowValue = document.getElementById("windowValue");
+            const win = document.getElementById("window");
+
+            ac.addEventListener('input', function() {
+                acValue.textContent = this.value + "%";
+            });     
+            light.addEventListener('input', function() {
+                lightValue.textContent = this.value + "%";
+            });     
+            win.addEventListener('input', function() {
+                windowValue.textContent = this.value + "%";
+            });     
+        </script>
+        <script>
+            const analysis = document.getElementById("aiAnalysis");
+            const analysis2 = document.getElementById("aiAnalysis2");
+            const text = analysis.textContent;
+            const text2 = analysis2.textContent;
+
+            analysis.textContent = "LOADING."
+            analysis2.textContent = "LOADING."
+            setTimeout(function(){ 
+                analysis.textContent = "LOADING.."
+                analysis2.textContent = "LOADING.."
+            },500)
+            setTimeout(function(){ 
+                analysis.textContent = "LOADING..."
+                analysis2.textContent = "LOADING..."
+            },1000)
+
+
+            setTimeout(function(){
+                analysis.textContent = text;
+                analysis2.textContent = text2;
+                typeWriter();
+            }, 2000);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,219 @@
+/* 
+color themes:
+#003459     -  dark blue
+white
+*/
+
+
+*{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h2{
+    font-family: Palatino, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+body, h1{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #003459;
+    /* background-image: linear-gradient(40deg, #a3b8e8, #bccef9); */
+    background-size: cover;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+    z-index: 100;
+}
+
+h1, h2 {
+    color: white;
+}
+p, .label {
+    color: whitesmoke;
+    font-family: Candara,Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+button{
+    cursor: pointer;    
+}
+
+hr {
+    width: 3vh;
+}
+
+progress{
+    width: 80%;
+    background-color: greenyellow;
+}
+
+.hardwarePanel{
+    border-radius: 10px;
+    background-size: cover;
+}
+
+.fitWide{
+    object-fit: cover;
+    width: 100%;    
+}
+
+.inline{
+    display: inline-block;
+}
+.empty{
+    height: 9vh;
+}
+.overlay{
+    overflow: hidden;
+}
+
+@keyframes leftShow{
+    0% {
+        left: -100vh;
+    }
+    100% {
+        left: 10vh;
+    }
+}
+
+@keyframes rightShow{
+    0% {
+        right: -100vh;
+    }
+    100% {
+        right: 10vh;
+    }
+}
+
+.showOnScrollLeft{
+    position: absolute;
+    animation-name: leftShow;
+    animation-duration: .7s;
+    left: 10vh;
+}
+
+
+.showOnScrollRight{
+    position: absolute;
+    animation-name: rightShow;
+    animation-duration: .7s;
+    right: 10vh;
+}
+
+#sideBar{
+    background-color: whitesmoke;
+    right: -50%;
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+    width: 50%;
+    box-shadow: none;
+
+    transition: right 1s, box-shadow 1s;
+}
+#sideBar.open{
+    right: 0;
+    box-shadow: 0 0 300px rgba(0, 0, 0, 1);
+}
+
+#rewardsScreen{
+    background-image: url(imgs/rewards-1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 100%;
+}
+
+#topnav{
+    background-color: transparent;
+    box-shadow: none;
+    width: 100%;
+    height: 8vh;
+    position: absolute;    
+    z-index: 100;
+
+    transition: background-color 1s, box-shadow 1s;
+}
+#topnav.sticky{
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 0 30px rgba(255, 255, 255, .6);
+    z-index: 100;
+}
+#topnav button{
+    height: 80%;
+    border: none;
+    background: transparent;
+    width: 100px;    
+    margin: 10px 20px 0 20px;
+}
+#topnav.button button{
+    width: 200px;
+    background-color: #003459;
+    border-radius: 20px;
+}
+
+nav button{
+    width: 95%;
+    height: 9vh;
+    float: right;
+    text-align: left;
+    background-color: transparent;
+    color: grey;
+    border: none;
+    padding: 20px;
+    margin: 10px;
+    font-size: 5vh;
+
+    transition: color .5s, font-size .3s;
+}
+nav button:hover{
+    color:#003459; 
+    font-size: 7vh;
+}
+
+#titleBox {
+    background: url(imgs/homepage.jpg);
+
+    background-repeat: no-repeat;
+    background-size: cover;    
+     
+    height: 100vh;       
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#titleBox::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.2); /* Adjust the alpha value for the desired tint darkness */
+    z-index: 1; /* Ensure the tint layer is behind the content */
+}
+
+#title {
+    margin: auto; 
+    text-align: center;
+    font-family: 'Tisa', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 17vh;    
+    color: white;
+    vertical-align: middle;
+
+    padding: 10vh;
+}
+
+#body{
+    padding-top: 10vh;
+    width: 90%;
+}
