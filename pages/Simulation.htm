@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel = "stylesheet" href = "../main.css">
+        <title>Rewards</title>        
+
+        <style>
+            #t {
+                position: absolute;
+                left: 20%;
+                top: 100px;                
+            }
+            #simContainer {
+                position: absolute;
+                top: 50%;
+                left: 75%;
+                transform: translate(-50%,-50%);
+                width: 600px;
+                height: 600px;            
+                background: url(../imgs/floorplan.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                border-radius: 50px;
+                box-shadow: 0 0 20px white;
+            }
+
+            #simContainer button{
+                position: absolute;                
+                border-radius: 100%;
+                transition: all .3s;
+                z-index: 100;
+                box-shadow: 0 0 100px white;   
+            }
+            .ac{
+                width: 30px;
+                height: 30px;                               
+                background-color: cadetblue;                
+            }
+            .light{
+                width: 20px;
+                height: 20px;                               
+                background-color: wheat;
+                /* box-shadow: 0 0 50px black;                  */
+            }
+            #simContainer button.off{
+                background-color: transparent;           
+            }
+            #simContainer button:hover{
+                transform: scale(1.5,1.5);
+            }
+            #simContainer button p{
+                position: absolute;
+                top: -50%;
+                left: -100%;
+                width: 0px;
+                color: transparent;
+                transition: all .5s;
+                text-align: left;
+            }
+            #simContainer button:hover p{
+                left: 120%;
+                width: 100px;
+                color: black;
+            }
+
+            #kwDisplay{
+                position: absolute;
+                left: 10%;
+                top: 200px;  
+                font-size: xx-large;
+            }
+
+            #info{
+                position: absolute;
+                top: 35%;
+                width: 50%;
+                left: 30px;
+            }
+
+        </style>
+    </head>
+    <body class = "noScroll">        
+        <div id = "sideBar">
+            <button onclick="closeDiv('sideBar')">X</button>
+            <nav>
+                <a href = "GraphsAndData.htm"><button> Graphs & data </button></a>
+                <a href = "Education.htm"><button> Education </button></a>
+                <a href = "Rewards.htm" class="customer"><button> Rewards </button></a>
+                <a href = "TenantRewards.htm" class="shopKeeper"><button> Rewards </button></a>
+                <a href = "Operator.htm" class="operator"><button> Operator </button></a>
+                <a href = "Simulation.htm"><button> Simulation </button></a>
+            </nav>
+        </div>
+        <div id = "topnav" class = "overlay sticky">
+            <a href = "../index.htm"><button style="float: left;"><p style="color: #003459;">WHITE</p></button></a>
+            <button style="float: right;" onclick="openDiv('sideBar')"><img src="../imgs/icons/hamburger.png" alt="NAV" style="width:20px"></button>
+            <!-- <button style="float: right;"><img src="imgs/icons/data.jpg" alt="NAV" style="width:20px"></button> -->
+        </div>  
+        
+        
+        <h1 id = "t">Simulation</h1>
+        <h1 id = "kwDisplay">Energy Used:</h1>
+        <div id = "info">
+            <p>Simulate the mall by activating or deactivating certain parts of the mall, and see just how much energy is produced.</p>
+            <h2 style="float: left; width: 100%;">Each hour, you're producing: </h2>
+            <p id = "co2" class="bold">x metric tonnes of carbon dioxide</p>
+            <p id = "heat" class="bold">x kiloJoules of heat</p>
+        </div>
+
+        <div id = "simContainer" class="sel1">
+            <button onclick="toggleOnOff(this)" class="ac" style="top: 25%; left: 26%;"><p>Air Conditioning</p></button>
+            <button onclick="toggleOnOff(this)" class="ac" style="top: 70%; left: 21%;"><p>Air Conditioning</p></button>
+            <button onclick="toggleOnOff(this)" class="ac" style="top: 64%; left: 14%;"><p>Air Conditioning</p></button>
+            <button onclick="toggleOnOff(this)" class="ac" style="top: 57%; left: 63%;"><p>Air Conditioning</p></button>
+            <button onclick="toggleOnOff(this)" class="ac" style="top: 57%; left: 79%;"><p>Air Conditioning</p></button>
+            <button onclick="toggleOnOff(this)" class="ac" style="top: 57%; left: 58%;"><p>Air Conditioning</p></button>
+            <button onclick="toggleOnOff(this)" class="ac" style="top: 50%; left: 54%;"><p>Air Conditioning</p></button>
+
+            <button onclick="toggleOnOff(this)" class="light" style="top: 18%; left: 24%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 53%; left: 16%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 20%; left: 47%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 20%; left: 67%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 20%; left: 87%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 37%; left: 47%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 37%; left: 87%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 69%; left: 17%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 69%; left: 40%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 65%; left: 64%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 65%; left: 80%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 65%; left: 57%;"><p>Lighting</p></button>
+            <button onclick="toggleOnOff(this)" class="light" style="top: 54%; left: 49%;"><p>Lighting</p></button>
+        </div>
+        
+        <script src = "../main.js"></script>
+        <script>
+            let energyUsedkW = 2700;
+            const energyKey = {
+                "light":[100],
+                "ac":[200]
+            }
+            const energyUsed = document.getElementById("kwDisplay")
+            const co2Produced = document.getElementById("co2")
+            const heatGen = document.getElementById("heat")
+            
+            function updateData(){
+                energyUsed.textContent = "Energy Used: " + energyUsedkW + " kiloWatts per hour";            
+                co2Produced.textContent = Math.round(energyUsedkW * .0006 * 100) / 100 + " metric tonnes of carbon dioxide";            
+                heatGen.textContent = energyUsedkW * 3600 + " kiloJoules of heat";            
+            }
+
+            function toggleOnOff(button){
+                let on = true;
+                if (button.classList.contains("off")){
+                    button.classList.remove("off");
+                }
+                else{
+                    on = false
+                    button.classList.add("off");
+                }
+                Object.keys(energyKey).forEach(element => {
+                    if (button.classList.contains(element)) {
+                        if (on) {
+                            energyUsedkW += energyKey[element][0];
+                        } else {
+                            energyUsedkW -= energyKey[element][0];
+                        }
+                    }
+                });
+                updateData();
+            }
+            updateData()
+        </script>
+    </body>
+</html>

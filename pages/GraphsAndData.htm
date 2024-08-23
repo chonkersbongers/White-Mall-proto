@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel = "stylesheet" href = "../main.css">
+        <title>Graphs & Data</title>       
+        
+        <style>
+            .chartPanel{
+                padding: 10px;
+                position: absolute;
+                bottom: 5vh;
+                left: 5vh;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                background-color: white;
+                width: 40%;
+                border-radius: 10px;
+                height: 80%;
+            } 
+            .chartPanel h2{
+                color: #003459;
+                position: absolute;
+            }
+            .chartPanel img{
+                position: absolute;
+                top: 10px;
+                height: 40%;
+            }
+        </style>
+    </head>
+    <body>       
+        <div id = "sideBar">
+            <button onclick="closeDiv('sideBar')">X</button>
+            <nav>
+                <a href = "GraphsAndData.htm"><button> Graphs & data </button></a>
+                <a href = "Education.htm"><button> Education </button></a>
+                <a href = "Rewards.htm" class="customer"><button> Rewards </button></a>
+                <a href = "TenantRewards.htm" class="shopKeeper"><button> Rewards </button></a>
+                <a href = "Operator.htm" class="operator"><button> Operator </button></a>
+                <a href = "Simulation.htm"><button> Simulation </button></a>
+            </nav>
+        </div>
+        <div id = "topnav" class = "overlay sticky">
+            <a href = "../index.htm"><button style="float: left;"><p style="color: #003459;">WHITE</p></button></a>
+            <button style="float: right;" onclick="openDiv('sideBar')"><img src="../imgs/icons/hamburger.png" alt="NAV" style="width:20px"></button>
+            <!-- <button style="float: right;"><img src="imgs/icons/data.jpg" alt="NAV" style="width:20px"></button> -->
+        </div>  
+        
+        <div class = "chartPanel showOnScrollLeft">
+            <h2>Energy usage throughout the day</h1> 
+            <img src = "../imgs/graphs/energy-usage.jpg" style="top: 10%;">           
+            <h2 style="top: 50%;">Customers in the mall throughout the day</h1> 
+            <img src = "../imgs/graphs/people.png" style="top: 60%;">           
+        </div>
+
+        <div class = "showOnScrollRight" style="top: 10vh; width: 40%;">
+            <h1> AI ANALYSIS </h1>
+            <p id = "aiAnalysis" class="typeWriter"> The top chart on the left shows increasingly large amounts of energy being used later during the day, mainly due to heating, lighting and screens. Consider turning off advertisements, etc. and limiting the use of heating. The bottom chart on the left shows the 1st and 3rd floors being used excessively towards the end of the day. Consider conserving energy for that period, and deactivating equipment for the 2nd floor during this time. </p>
+            <h1> RECOMMENDATIONS </h1>
+            <p id = "aiAnalysis2" class="typeWriter"> To summarise, the system suggests that less energy be put into maintaining the 2nd floor later in the day, and to watch out for excessive energy use, specifically in the 1st floor.</p>
+        </div>
+
+        <script src = "../main.js"></script>
+        <script>
+            const analysis = document.getElementById("aiAnalysis");
+            const analysis2 = document.getElementById("aiAnalysis2");
+            const text = analysis.textContent;
+            const text2 = analysis2.textContent;
+
+            analysis.textContent = "LOADING."
+            analysis2.textContent = "LOADING."
+            setTimeout(function(){ 
+                analysis.textContent = "LOADING.."
+                analysis2.textContent = "LOADING.."
+            },500)
+            setTimeout(function(){ 
+                analysis.textContent = "LOADING..."
+                analysis2.textContent = "LOADING..."
+            },1000)
+
+
+            setTimeout(function(){
+                analysis.textContent = text;
+                analysis2.textContent = text2;
+                typeWriter();
+            }, 2000);
+        </script>
+    </body>
+</html>
