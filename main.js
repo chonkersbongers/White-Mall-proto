@@ -1,5 +1,6 @@
 const password = "PASSWORD";
-let role = localStorage.getItem("rle");
+const roleLibrary = "ROLE"
+let role = localStorage.getItem(roleLibrary);
 
 const toShow = document.querySelectorAll(".showOnScrollRight, .showOnScrollLeft")
 
@@ -32,33 +33,38 @@ function typeWriter() {
     })
 }
 
-function setRole(r, l = true){    
-    if (r == "operator" || r == "shopKeeper" && l){        
+function setRoleSimple(r){
+    localStorage.setItem(roleLibrary, r)
+}
+
+function setRole(r){    
+    if (r == "operator" || r == "shopKeeper"){        
         lock();
     }
 
-    localStorage.setItem("rle", r);
+    setRoleSimple(r);
     role = r
+    document.querySelectorAll(".operator, .shopKeeper, .customer").forEach(function(element){
+        element.hidden = false;
+    })
+
     if (r != "operator"){
         document.querySelectorAll(".operator").forEach(function(element){
-            element.remove();
+            element.hidden = true;
         })
     }
     if (r != "shopKeeper"){
         document.querySelectorAll(".shopKeeper").forEach(function(element){
-            element.remove();
+            element.hidden = true;
         })
     }
     if (r != "customer"){
         document.querySelectorAll(".customer").forEach(function(element){
-            element.remove();
+            element.hidden = true;
         })
     }
     console.log(r)
     hideDiv('selection');
-    if (l){
-        window.location.reload();
-    }
 }
 
 function lock(){
@@ -75,6 +81,7 @@ function lock(){
         else{
             const conf = confirm("Password was entered incorrectly. Please enter again.");
             if (!conf) {
+                
                 location.replace("index.htm");
                 break;
             }
@@ -92,10 +99,11 @@ window.onscroll = function(){
     }
 }
 
-console.log(role)
-if (role == null){
+const roles = ["customer", "operator", "shopKeeper"];
+if (!roles.includes(role)){
     document.getElementById("selection").classList.remove("hidden")
 }
 else{
-    setRole(role, false);
+    // setRoleSimple(role);
+    setRole(role);
 }
