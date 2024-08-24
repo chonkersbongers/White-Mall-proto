@@ -32,8 +32,8 @@ function typeWriter() {
     })
 }
 
-function setRole(r){    
-    if (r == "operator" || r == "shopKeeper"){        
+function setRole(r, l = true){    
+    if (r == "operator" || r == "shopKeeper" && l){        
         lock();
     }
 
@@ -54,7 +54,11 @@ function setRole(r){
             element.remove();
         })
     }
+    console.log(r)
     hideDiv('selection');
+    if (l){
+        window.location.reload();
+    }
 }
 
 function lock(){
@@ -62,7 +66,7 @@ function lock(){
     while (!correct){
         const inp = prompt("Enter the password to open the operator window.", "Password here");
         if (inp == null){
-            location.replace("home.htm");
+            location.replace("index.htm");
             break;
         }
         else if (inp == password){
@@ -71,7 +75,7 @@ function lock(){
         else{
             const conf = confirm("Password was entered incorrectly. Please enter again.");
             if (!conf) {
-                location.replace("home.htm");
+                location.replace("index.htm");
                 break;
             }
         }
@@ -93,5 +97,5 @@ if (role == null){
     document.getElementById("selection").classList.remove("hidden")
 }
 else{
-    setRole(role);
+    setRole(role, false);
 }
